@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/najadojo/gltf-import-export#readme",
   "dependencies": {
-    "yargs": "^11.1.0"
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@types/node": "^7.10.9",
