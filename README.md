@@ -42,14 +42,3 @@ const gltfFilename = 'pathtoyour.gltf';
 // optionally if you haven't already parsed the gltf JSON
 ConvertGltfToGLB(gltfFilename, outputGlb);
 ```
-
-## Command line tool
-Takes a .glb and exports to a .gltf or takes a .gltf and imports into a .glb.
-```
-Usage: gltf-import-export <file> [options]
-
-Options:
-  --version     Show version number                                    [boolean]
-  --output, -o  Output filename
-  --help, -h    Show help                                              [boolean]
-  ```

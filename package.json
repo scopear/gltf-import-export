@@ -3,7 +3,6 @@
   "version": "1.0.16",
   "description": "Convert between GLB and GLTF files",
   "main": "dist/index.js",
-  "bin": "dist/tool.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
