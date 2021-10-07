@@ -1,13 +1,15 @@
 'use strict';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ConvertGLBtoGltfLoadFirst = exports.ConvertGLBtoGltf = void 0;
 const fs = require("fs");
 const path = require("path");
 const exportProvider_1 = require("./exportProvider");
@@ -90,10 +92,10 @@ function doConversion(sourceBuf, pathBase, targetFilename) {
         const offset = view.byteOffset === undefined ? 0 : view.byteOffset;
         const length = view.byteLength;
         const firstReference = images[0];
-        const extension = exportProvider_1.guessFileExtension(firstReference.mimeType);
+        const extension = (0, exportProvider_1.guessFileExtension)(firstReference.mimeType);
         const imageIndex = gltf.images.indexOf(firstReference);
         const filename = targetBasename + '_img' + imageIndex.toString() + extension;
-        const buf = exportProvider_1.getBuffer(gltf, view.buffer, pathBase, binBuffer);
+        const buf = (0, exportProvider_1.getBuffer)(gltf, view.buffer, pathBase, binBuffer);
         if (buf === null) {
             throw new Error('Content of bufferId ' + view.bufferId + ' not found.');
         }
@@ -128,7 +130,7 @@ function doConversion(sourceBuf, pathBase, targetFilename) {
         }
         const shaderIndex = gltf.shaders.indexOf(firstReference);
         const filename = targetBasename + '_shader' + shaderIndex.toString() + extension;
-        const buf = exportProvider_1.getBuffer(gltf, view.buffer, pathBase, binBuffer);
+        const buf = (0, exportProvider_1.getBuffer)(gltf, view.buffer, pathBase, binBuffer);
         if (buf === null) {
             throw new Error('Content of bufferId ' + view.bufferId + ' not found.');
         }
@@ -144,9 +146,9 @@ function doConversion(sourceBuf, pathBase, targetFilename) {
         const offset = view.byteOffset === undefined ? 0 : view.byteOffset;
         const length = view.byteLength;
         const firstReference = buffers[0];
-        const extension = exportProvider_1.guessFileExtension(firstReference.buffer.mimeType);
+        const extension = (0, exportProvider_1.guessFileExtension)(firstReference.buffer.mimeType);
         const filename = targetBasename + '_' + firstReference.name + '_' + bufferViewIndex.toString() + extension;
-        const buf = exportProvider_1.getBuffer(gltf, view.buffer, pathBase, binBuffer);
+        const buf = (0, exportProvider_1.getBuffer)(gltf, view.buffer, pathBase, binBuffer);
         if (buf === null) {
             throw new Error('Content of bufferId ' + view.bufferId + ' not found.');
         }
@@ -183,9 +185,9 @@ function doConversion(sourceBuf, pathBase, targetFilename) {
         const view = gltf.bufferViews[bufferViewIndex];
         const offset = view.byteOffset === undefined ? 0 : view.byteOffset;
         const length = view.byteLength;
-        const aLength = exportProvider_1.alignedLength(length);
+        const aLength = (0, exportProvider_1.alignedLength)(length);
         let bufPart;
-        const buf = exportProvider_1.getBuffer(gltf, view.buffer, pathBase, binBuffer);
+        const buf = (0, exportProvider_1.getBuffer)(gltf, view.buffer, pathBase, binBuffer);
         if (buf === null) {
             throw new Error('Content of bufferId ' + view.bufferId + ' not found.');
         }

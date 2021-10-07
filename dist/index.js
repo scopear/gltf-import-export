@@ -1,10 +1,11 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ConvertGLBtoGltfLoadFirst = exports.ConvertGLBtoGltf = exports.getBuffer = exports.ConvertToGLB = exports.ConvertGltfToGLB = void 0;
 var exportProvider_1 = require("./exportProvider");
-exports.ConvertGltfToGLB = exportProvider_1.ConvertGltfToGLB;
-exports.ConvertToGLB = exportProvider_1.ConvertToGLB;
-exports.getBuffer = exportProvider_1.getBuffer;
+Object.defineProperty(exports, "ConvertGltfToGLB", { enumerable: true, get: function () { return exportProvider_1.ConvertGltfToGLB; } });
+Object.defineProperty(exports, "ConvertToGLB", { enumerable: true, get: function () { return exportProvider_1.ConvertToGLB; } });
+Object.defineProperty(exports, "getBuffer", { enumerable: true, get: function () { return exportProvider_1.getBuffer; } });
 var importProvider_1 = require("./importProvider");
-exports.ConvertGLBtoGltf = importProvider_1.ConvertGLBtoGltf;
-exports.ConvertGLBtoGltfLoadFirst = importProvider_1.ConvertGLBtoGltfLoadFirst;
+Object.defineProperty(exports, "ConvertGLBtoGltf", { enumerable: true, get: function () { return importProvider_1.ConvertGLBtoGltf; } });
+Object.defineProperty(exports, "ConvertGLBtoGltfLoadFirst", { enumerable: true, get: function () { return importProvider_1.ConvertGLBtoGltfLoadFirst; } });
 //# sourceMappingURL=index.js.map
